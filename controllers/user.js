@@ -3,6 +3,10 @@ const {
     errorHandler
 } = require("../helpers/dbErrorHandler");
 
+const {
+    userSignupValidator
+} = require("../validator/index");
+
 exports.signup = (req, res) => {
     console.log("req.body", req.body);
     const user = new User(req.body);
