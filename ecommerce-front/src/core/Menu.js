@@ -5,6 +5,10 @@ import {
     Link,
     withRouter
 } from "react-router-dom";
+import {
+    signout,
+    isAuthenticated
+} from "../auth";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -35,31 +39,67 @@ const Menu = (props) => {
             " "
         } <
         /Link>{" "} <
-        /li>{" "} <
-        li className = "nav-item" >
-        <
-        Link className = "nav-link"
-        style = {
-            isActive(props.history, "/signin")
-        }
-        to = "/signin" >
-        Signin {
+        /li>{" "} {
+            !isAuthenticated() && ( <
+                Fragment >
+                <
+                li className = "nav-item" >
+                <
+                Link className = "nav-link"
+                style = {
+                    isActive(props.history, "/signin")
+                }
+                to = "/signin" >
+                Signin {
+                    " "
+                } <
+                /Link>{" "} <
+                /li>{" "} <
+                li className = "nav-item" >
+                <
+                Link className = "nav-link"
+                style = {
+                    isActive(props.history, "/signup")
+                }
+                to = "/signup" >
+                Signup {
+                    " "
+                } <
+                /Link>{" "} <
+                /li>{" "} <
+                /Fragment>
+            )
+        } {
+            " "
+        } {
+            isAuthenticated() && ( <
+                div >
+                <
+                li className = "nav-item" >
+                <
+                span className = "nav-link"
+                style = {
+                    {
+                        cursor: "pointer",
+                        color: "#ffffff",
+                    }
+                }
+                onClick = {
+                    () =>
+                    signout(() => {
+                        props.history.push("/");
+                    })
+                } >
+                Signout {
+                    " "
+                } <
+                /span>{" "} <
+                /li>{" "} <
+                /div>
+            )
+        } {
             " "
         } <
-        /Link>{" "} <
-        /li>{" "} <
-        li className = "nav-item" >
-        <
-        Link className = "nav-link"
-        style = {
-            isActive(props.history, "/signup")
-        }
-        to = "/signup" >
-        Signup {
-            " "
-        } <
-        /Link>{" "} <
-        /li>{" "} <
         /ul>{" "} <
         /div>
     );

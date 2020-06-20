@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     salt: String,
     role: {
         type: Number,
-        default: 1,
+        default: 0,
     },
     history: {
         type: Array,
