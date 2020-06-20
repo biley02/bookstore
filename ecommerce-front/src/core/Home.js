@@ -8,6 +8,7 @@ import {
     getProducts
 } from "./apiCore";
 import Card from "./Card";
+import Search from "./Search";
 
 const Home = () => {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -43,9 +44,11 @@ const Home = () => {
     }, []);
 
     return ( <
-        Layout title = "FullStack React Node MongoDB Ecommerce App"
-        description = "Node React E-commerce App"
+        Layout title = "Aapka Bazaar "
+        description = "Perfect place to get the latest fashion clothing on your wardrobe"
         className = "container-fluid" >
+        <
+        Search / >
         <
         h2 className = "mb-4" > New Arrivals < /h2>{" "} <
         div className = "row" > {

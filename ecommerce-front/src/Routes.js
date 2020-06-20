@@ -9,6 +9,7 @@ import {
 import Signup from "./user/Signup";
 import Signin from "./user/Signin";
 import Home from "./core/Home";
+import Shop from "./core/Shop";
 import Menu from "./core/Menu";
 import PrivateRoute from "./auth/PrivateRoutes";
 import DashBoard from "./user/UserDashboard";
@@ -28,6 +29,11 @@ const Routes = () => {
         Route path = "/"
         exact component = {
             Home
+        }
+        />{" "} <
+        Route path = "/shop"
+        exact component = {
+            Shop
         }
         />{" "} <
         Route path = "/signin"

@@ -264,3 +264,30 @@ exports.photo = (req, res, next) => {
         return res.send(req.product.photo.data);
     }
 };
+
+exports.listSearch = (req, res) => {
+    // create query object to hold search value and category value
+    const query = {};
+    // assign search value to query.name
+    if (req.query.search) {
+        //$regex -> provides regular expression for pattern matching and i is for case insensitivity
+        query.name = {
+            $regex: req.query.search,
+            $options: "i",
+        };
+        // assigne category value to query.category
+        if (req.query.category && req.query.category != "All") {
+            query.category = req.query.category;
+        }
+        // find the product based on query object with 2 properties
+        // search and category
+        Product.find(query, (err, products) => {
+            if (err) {
+                return res.status(400).json({
+                    error: errorHandler(err),
+                });
+            }
+            res.json(products);
+        }).select("-photo"); // remove photo thus minus photo else too slow
+    }
+};
