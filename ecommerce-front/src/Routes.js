@@ -10,6 +10,10 @@ import Signup from "./user/Signup";
 import Signin from "./user/Signin";
 import Home from "./core/Home";
 import Menu from "./core/Menu";
+import PrivateRoute from "./auth/PrivateRoutes";
+import DashBoard from "./user/UserDashboard";
+import AdminRoute from "./auth/AdminRoute";
+import AdminDashBoard from "./user/AdminDashboard";
 
 const Routes = () => {
     return ( <
@@ -32,6 +36,16 @@ const Routes = () => {
         Route path = "/signup"
         exact component = {
             Signup
+        }
+        />{" "} <
+        PrivateRoute path = "/user/dashboard"
+        exact component = {
+            DashBoard
+        }
+        />{" "} <
+        AdminRoute path = "/admin/dashboard"
+        exact component = {
+            AdminDashBoard
         }
         />{" "} <
         /Switch>{" "} <

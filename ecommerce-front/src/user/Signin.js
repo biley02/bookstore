@@ -14,7 +14,8 @@ import {
 } from "react-router-dom";
 import {
     signin,
-    authenticate
+    authenticate,
+    isAuthenticated
 } from "../auth";
 
 const Signin = () => {
@@ -26,6 +27,7 @@ const Signin = () => {
         redirectToReferrer: false,
     });
 
+    //De structuring
     const {
         email,
         password,
@@ -33,6 +35,9 @@ const Signin = () => {
         error,
         redirectToReferrer
     } = values;
+    const {
+        user
+    } = isAuthenticated();
 
     const handleChange = (name) => (event) => {
         setValues({...values,
@@ -136,6 +141,13 @@ const Signin = () => {
 
     const redirectUser = () => {
         if (redirectToReferrer) {
+            if (user && user.role === 1) {
+                return <Redirect to = "/admin/dashboard" / > ;
+            } else {
+                return <Redirect to = "/user/dashboard" / > ;
+            }
+        }
+        if (isAuthenticated()) {
             return <Redirect to = "/" / > ;
         }
     };
