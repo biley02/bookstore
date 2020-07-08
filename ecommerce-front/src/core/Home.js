@@ -1,5 +1,4 @@
 import React, {
-    PureComponent,
     useState,
     useEffect
 } from "react";
@@ -36,49 +35,70 @@ const Home = () => {
         });
     };
 
-    //To make sure these fuctions work when components mount
-
     useEffect(() => {
         loadProductsByArrival();
         loadProductsBySell();
     }, []);
 
     return ( <
-        Layout title = "Aapka Bazaar "
-        description = "Perfect place to get the latest fashion clothing on your wardrobe"
+        Layout title = "FullStack React Node MongoDB Ecommerce App"
+        description = "Node React E-commerce App"
         className = "container-fluid" >
         <
         Search / >
         <
         h2 className = "mb-4" > New Arrivals < /h2>{" "} <
-        div className = "row" > {
+        div className = "row"
+        style = {
+            {
+                margin: "auto",
+                display: "flex",
+                flexWrap: "wrap",
+            }
+        } >
+        {
             " "
         } {
             productsByArrival.map((product, i) => ( <
-                Card key = {
+                div key = {
                     i
                 }
-                product = {
+                className = "lg-4 col-md-4 col-sm-6 col-12 col-xl-3" >
+                <
+                Card product = {
                     product
                 }
-                />
+                />{" "} <
+                /div>
             ))
         } {
             " "
         } <
         /div>{" "} <
         h2 className = "mb-4" > Best Sellers < /h2>{" "} <
-        div className = "row" > {
+        div className = "row"
+        style = {
+            {
+                margin: "auto",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "baseline",
+            }
+        } >
+        {
             " "
         } {
             productsBySell.map((product, i) => ( <
-                Card key = {
+                div key = {
                     i
                 }
-                product = {
+                className = "lg-4 col-md-4 col-sm-6 col-12 col-xl-3" >
+                <
+                Card product = {
                     product
                 }
-                />
+                />{" "} <
+                /div>
             ))
         } {
             " "

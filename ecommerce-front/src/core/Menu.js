@@ -9,6 +9,9 @@ import {
     signout,
     isAuthenticated
 } from "../auth";
+import {
+    itemTotal
+} from "./cartHelpers";
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -50,6 +53,25 @@ const Menu = (props) => {
         Shop {
             " "
         } <
+        /Link>{" "} <
+        /li>{" "} <
+        li className = "nav-item" >
+        <
+        Link className = "nav-link"
+        style = {
+            isActive(props.history, "/cart")
+        }
+        to = "/cart" >
+        Cart {
+            " "
+        } <
+        span className = "badge badge-warning badge-pill" > {
+            " "
+        } <
+        small > {
+            itemTotal()
+        } < /small>{" "} <
+        /span>{" "} <
         /Link>{" "} <
         /li>{" "} {
             isAuthenticated() && isAuthenticated().user.role === 0 && ( <

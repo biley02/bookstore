@@ -7,7 +7,13 @@ const ShowImage = ({
     item,
     url
 }) => ( <
-    div className = "product-img" >
+    div className = "product-img"
+    style = {
+        {
+            display: "flex",
+            justifyContent: "center",
+        }
+    } >
     <
     img src = {
         `${API}/${url}/photo/${item._id}`

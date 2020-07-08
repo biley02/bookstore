@@ -98,9 +98,9 @@ const Shop = () => {
         <
         div className = "row" >
         <
-        div className = "col-2" >
+        div className = "col-2 " >
         <
-        h4 > Filter by categories < /h4>{" "} <
+        h4 > Filter < /h4>{" "} <
         ul >
         <
         Checkbox categories = {
@@ -112,10 +112,19 @@ const Shop = () => {
         />{" "} <
         /ul>{" "} <
         /div>{" "} <
-        div className = "col-10" >
+        div className = "col-10 " >
         <
         h2 className = "md-4" > Products < /h2>{" "} <
-        div className = "row" > {
+        div className = "row"
+        style = {
+            {
+                margin: "auto",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "baseline",
+            }
+        } >
+        {
             " "
         } {
             filteredResults.map((product, i) => ( <
@@ -125,7 +134,13 @@ const Shop = () => {
                 product = {
                     product
                 }
-                className = " md-4" / >
+                style = {
+                    {
+                        margin: "auto",
+                    }
+                }
+                className = "lg-4 col-md-6 col-sm-12 col-12 col-xl-3" /
+                >
             ))
         } {
             " "
